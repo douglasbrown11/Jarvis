@@ -1,9 +1,7 @@
 # Jarvis Clap Console
 
-This is a Windows-first prototype for the flow you described:
-
 1. Double clap.
-2. Open ChatGPT and Claude.
+2. Open ChatGPT, Claude, and Terminal .
 3. Play "Should I Stay or Should I Go" automatically inside the Jarvis page.
 4. Speak a time-of-day greeting.
 5. Keep listening so you can talk back to Jarvis.
@@ -24,7 +22,7 @@ The Node process handles:
 
 ## What It Does Right Now
 
-- Opens ChatGPT and Claude.
+- Opens ChatGPT, Claude, and Terminal.
 - Uses a configurable wake routine.
 - Plays the official YouTube video for "Should I Stay or Should I Go" by default.
 - Speaks "Good morning, sir", "Good afternoon, sir", or "Good evening, sir".
