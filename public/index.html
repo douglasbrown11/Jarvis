@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jarvis Clap Console</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero-panel">
+        <div class="scan-ring scan-ring-a"></div>
+        <div class="scan-ring scan-ring-b"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">Voice Console</p>
+          <h1>Jarvis Clap Console</h1>
+          <p class="lede">
+            Arm the microphone once, clap twice, and the console will launch your targets,
+            fire the wake track, greet you, and switch into spoken conversation mode.
+          </p>
+        </div>
+
+        <div class="status-grid">
+          <div class="status-card">
+            <span class="status-label">Clap Sensor</span>
+            <strong id="arm-status">Offline</strong>
+            <span id="sensor-detail" class="status-detail">Microphone not armed.</span>
+          </div>
+          <div class="status-card">
+            <span class="status-label">Assistant</span>
+            <strong id="assistant-status">Checking</strong>
+            <span id="assistant-detail" class="status-detail">Loading runtime config.</span>
+          </div>
+          <div class="status-card">
+            <span class="status-label">Conversation</span>
+            <strong id="conversation-status">Idle</strong>
+            <span id="conversation-detail" class="status-detail">Waiting for wake event.</span>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="arm-button" class="action-button primary">Arm Jarvis</button>
+          <button id="trigger-button" class="action-button secondary">Manual Trigger</button>
+          <button id="stand-down-button" class="action-button ghost">Stand Down</button>
+        </div>
+
+        <div class="meter-wrap">
+          <div class="meter-header">
+            <span>Clap Energy</span>
+            <span class="meter-stats">
+              <span>Now <strong id="meter-value">0.000</strong></span>
+              <span>Threshold <strong id="meter-threshold-value">0.000</strong></span>
+            </span>
+          </div>
+          <div class="meter-track">
+            <div id="meter-fill" class="meter-fill"></div>
+            <div id="meter-threshold" class="meter-threshold"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="console-grid">
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Voice</h2>
+            <span class="panel-chip">Local Audio</span>
+          </div>
+          <label class="field">
+            <span>Voice</span>
+            <select id="voice-select"></select>
+          </label>
+          <label class="field">
+            <span>Locked Microphone</span>
+            <select id="microphone-select">
+              <option value="">Loading microphones...</option>
+            </select>
+          </label>
+          <div class="controls-inline">
+            <button id="refresh-microphones-button" class="action-button ghost" type="button">Refresh Mics</button>
+            <button id="lock-microphone-button" class="action-button secondary" type="button">Lock Selected Mic</button>
+            <button id="unlock-microphone-button" class="action-button ghost" type="button">Use Default Mic</button>
+          </div>
+          <label class="toggle">
+            <input id="auto-speak-toggle" type="checkbox" checked>
+            <span>Speak replies aloud</span>
+          </label>
+          <div class="quick-notes">
+            <p>Wake phrase is not required. Double clap is the trigger.</p>
+            <p>Voice input and voice output are back on the local browser speech services.</p>
+            <p>Say <strong>stand down</strong> to stop the listening loop.</p>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Launch Targets</h2>
+            <span class="panel-chip">Configured</span>
+          </div>
+          <label class="field">
+            <span>Installed App Picker</span>
+            <select id="installed-apps-select">
+              <option value="">Loading installed apps...</option>
+            </select>
+          </label>
+          <button id="add-installed-app-button" class="action-button secondary" type="button">Add Installed App</button>
+          <div class="launch-divider"></div>
+          <label class="field">
+            <span>Custom App Name</span>
+            <input id="custom-target-name" type="text" placeholder="Example: Spotify">
+          </label>
+          <label class="field">
+            <span>Executable Path</span>
+            <input id="custom-target-path" type="text" placeholder="C:\Program Files\App\app.exe">
+          </label>
+          <label class="field">
+            <span>Arguments (optional)</span>
+            <input id="custom-target-args" type="text" placeholder="-NoExit --example">
+          </label>
+          <label class="toggle">
+            <input id="custom-target-show-window" type="checkbox" checked>
+            <span>Show window on wake</span>
+          </label>
+          <button id="add-custom-target-button" class="action-button secondary" type="button">Add Custom App</button>
+          <div class="launch-divider"></div>
+          <ul id="launch-list" class="target-list"></ul>
+        </article>
+
+        <article class="panel panel-wide">
+          <div class="panel-header">
+            <h2>Conversation</h2>
+            <span class="panel-chip">Jarvis</span>
+          </div>
+          <div id="conversation-log" class="conversation-log"></div>
+          <form id="composer" class="composer">
+            <input id="message-input" type="text" placeholder="Type a fallback message if you do not want to speak.">
+            <button class="action-button primary" type="submit">Send</button>
+          </form>
+        </article>
+      </section>
+    </main>
+
+    <div id="youtube-player-host" class="youtube-player-host" aria-hidden="true"></div>
+    <script src="/app.js"></script>
+  </body>
+  </html>

@@ -1,0 +1,86 @@
+{
+  "server": {
+    "port": 3080,
+    "openBrowserOnStart": true
+  },
+  "launchTargets": [
+    {
+      "name": "Claude",
+      "type": "appx",
+      "target": "Claude_pzs8sxrjxfjjc!Claude"
+    },
+    {
+      "name": "Windows PowerShell",
+      "type": "exe",
+      "target": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": [
+        "-NoExit"
+      ],
+      "hideWindow": false
+    },
+    {
+      "name": "Notes",
+      "type": "shell",
+      "target": "\"C:\\Users\\dougi\\Desktop\\iCloud Notes.lnk\"",
+      "hideWindow": false
+    }
+  ],
+  "music": {
+    "name": "Should I Stay or Should I Go",
+    "type": "youtube",
+    "target": "xMaE6toi4mk",
+    "startSeconds": 0
+  },
+  "voice": {
+    "provider": "browser",
+    "preferredName": "Guy",
+    "rate": 0.92,
+    "pitch": 0.84,
+    "volume": 1,
+    "openaiModel": "gpt-4o-mini-tts",
+    "openaiVoice": "onyx",
+    "openaiInstructions": "Speak like a polished British executive assistant. Calm, precise, low-drama, warm, and articulate. Keep the cadence controlled and confident. Avoid sounding excited, cartoonish, or overly theatrical."
+  },
+  "greetings": {
+    "morning": "Good morning, sir.",
+    "afternoon": "Good afternoon, sir.",
+    "evening": "Good evening, sir."
+  },
+  "clapDetector": {
+    "threshold": 0.048,
+    "multiplier": 3,
+    "minGapMs": 140,
+    "maxGapMs": 900,
+    "cooldownMs": 6000
+  },
+  "microphone": {
+    "lockedDeviceId": "",
+    "lockedLabel": "Microphone Array"
+  },
+  "transcription": {
+    "provider": "browser",
+    "openai": {
+      "model": "gpt-4o-mini-transcribe",
+      "language": "en",
+      "prompt": "Transcribe short spoken commands for a desktop assistant. Keep punctuation simple and preserve proper names."
+    },
+    "startThreshold": 0.018,
+    "multiplier": 2.2,
+    "silenceMs": 900,
+    "maxRecordingMs": 10000,
+    "minSpeechMs": 350,
+    "minBlobBytes": 3000
+  },
+  "assistant": {
+    "provider": "local",
+    "systemPrompt": "You are a formal, concise, polished home assistant. Keep replies short enough to sound natural when spoken aloud. If you cannot perform an action from this local app, say so plainly and suggest the next step.",
+    "openai": {
+      "model": "gpt-5.4-mini"
+    },
+    "anthropic": {
+      "model": "claude-sonnet-4-20250514",
+      "maxTokens": 500
+    },
+    "unconfiguredReply": "Voice control is local now, but AI chat is currently disabled. Add an Anthropic or OpenAI API key later if you want conversational replies."
+  }
+}

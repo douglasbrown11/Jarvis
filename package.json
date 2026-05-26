@@ -1,0 +1,14 @@
+{
+  "name": "jarvis-clap-agent",
+  "version": "0.1.0",
+  "private": true,
+  "main": "tray/main.js",
+  "description": "Windows-based double-clap Jarvis-style launcher and voice assistant",
+  "scripts": {
+    "start": "node server.js",
+    "tray": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^40.0.0"
+  }
+}
